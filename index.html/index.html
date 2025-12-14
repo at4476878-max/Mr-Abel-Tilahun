@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abel Tilahun Alemu | Economics Portfolio</title>
+    
+    <!-- Importing academic-style fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for LinkedIn Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- GENERAL STYLES (Tony Atkinson Style: Clean, White, Academic) --- */
+        :root {
+            --primary-color: #222; /* Very dark grey for text */
+            --accent-color: #0056b3;  /* Academic Blue for links/highlights */
+            --bg-color: #ffffff;
+            --section-bg: #fdfdfd;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.9;
+            color: #444;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #003d80;
+        }
+
+        /* --- LAYOUT CONTAINER --- */
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        /* --- HEADER --- */
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 4px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            margin-right: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        header .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 400;
+            font-family: 'Merriweather', serif;
+            font-style: italic;
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            font-size: 1.1rem;
+            color: #555;
+            margin-right: 15px;
+        }
+
+        .social-links a:hover {
+            color: #0077b5; /* LinkedIn Blue */
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            margin-bottom: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* --- ACADEMIC LISTS --- */
+        .achievement-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .achievement-list li {
+            margin-bottom: 25px;
+            padding-left: 0;
+        }
+
+        .achievement-date {
+            font-weight: bold;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+        }
+
+        .coursework-tags span {
+            display: inline-block;
+            background: #f0f4f8;
+            color: #333;
+            padding: 5px 10px;
+            margin: 0 5px 5px 0;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            border: 1px solid #e1e4e8;
+        }
+
+        /* --- CORE INTERESTS LIST --- */
+        .interest-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .interest-list li {
+            background: #f9f9f9;
+            padding: 10px 15px;
+            border-left: 3px solid var(--accent-color);
+            font-size: 0.95rem;
+        }
+
+        /* --- CERTIFICATES GALLERY --- */
+        .certificate-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .cert-item {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 10px;
+            text-align: center;
+            transition: box-shadow 0.3s;
+        }
+
+        .cert-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .cert-img {
+            width: 100%;
+            height: 150px; /* Fixed height for uniformity */
+            object-fit: contain; /* Keeps image proportions */
+            background-color: #fafafa;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .cert-caption {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .interest-list {
+                grid-template-columns: 1fr; /* Single column on phone */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- HEADER -->
+        <header>
+            <!-- IMAGE: Ensure you name your photo 'profile.jpg' -->
+            <img src="profile.jpg" alt="Abel Tilahun Alemu" class="profile-img">
+            
+            <div class="header-text">
+                <h1>Abel Tilahun Alemu</h1>
+                <p class="subtitle">B.A. Candidate in Economics | Addis Ababa University</p>
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/abel429" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- NAVIGATION -->
+        <nav>
+            <ul>
+                <li><a href="#biography">Biography</a></li>
+                <li><a href="#academic">Academic Record</a></li>
+                <li><a href="#status">Current Status</a></li>
+                <li><a href="#future">Future Career</a></li>
+            </ul>
+        </nav>
+
+        <!-- 1. BIOGRAPHY -->
+        <section id="biography">
+            <h2 class="section-title">Biography</h2>
+            
+            <p>
+                I was born in Addis Ababa in 2005 G.C. and raised in a family that faced significant financial hardship. My early childhood was shaped by instability and sacrifice. I spent my first four years living with my father, Kassahun Abebayehu, before my mother, Roza Alemu, migrated to Dubai in search of better opportunities to support our family.
+            </p>
+            <p>
+                After her departure, I lived with my aunt for a short period until her untimely death. Soon after, my parents divorced, marking another major turning point in my life. I later reunited with my mother and experienced a more stable living standard, which allowed me to focus on my education and personal growth.
+            </p>
+            <p>
+                Tragically, when I was twelve years old, my mother passed away. I lived alone for three years, a period that forced me to mature far earlier than most. During this time, I survived and progressed with the unwavering support of my uncle, Tilahun Alemu, whose guidance and care profoundly shaped the person I am today. Out of deep respect and love, I proudly carry his name.
+            </p>
+            <p>
+                These experiences taught me resilience, discipline, and purpose. They transformed hardship into motivation and loss into ambition. Today, I pursue Economics with a clear vision: to rise beyond my circumstances and create lasting impact through knowledge, analysis, and leadership.
+            </p>
+        </section>
+
+        <!-- 2. ACADEMIC ACHIEVEMENTS -->
+        <section id="academic">
+            <h2 class="section-title">Academic Journey & Milestones</h2>
+            
+            <h3>Education</h3>
+            <ul class="achievement-list">
+                <li>
+                    <span class="achievement-date">2023 - Present</span>
+                    <strong>Bachelor of Arts in Economics</strong><br>
+                    Addis Ababa University<br>
+                    Second-year undergraduate student with a strong academic interest in economic analysis, development economics, and policy-related studies.
+                </li>
+                <li>
+                    <span class="achievement-date">Completed</span>
+                    <strong>Secondary School Education</strong><br>
+                    Gojjam Ber Secondary School
+                </li>
+            </ul>
+
+            <h3>Academic Focus & Coursework</h3>
+            <div class="coursework-tags">
+                <span>Principles of Microeconomics</span>
+                <span>Principles of Macroeconomics</span>
+                <span>Basic Accounting & Financial Reporting</span>
+                <span>Mathematics for Economics</span>
+                <span>Introductory Statistics</span>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <strong>Academic Case Studies:</strong> Completed multiple coursework-based case studies focusing on economic decision-making and real-world economic issues, strengthening analytical thinking and data interpretation skills.
+            </div>
+
+            <h3>Certificates & Professional Training</h3>
+            <div class="certificate-gallery">
+                <!-- Certificate 1 -->
+                <div class="cert-item">
+                    <img src="cert1.jpg" alt="World Bank Certificate" class="cert-img">
+                    <span class="cert-caption">Successful Field Work (World Bank)</span>
+                </div>
+                
+                <!-- Certificate 2 -->
+                <div class="cert-item">
+                    <img src="cert2.jpg" alt="Peace Economics" class="cert-img">
+                    <span class="cert-caption">Issues of Economics & Peace</span>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div class="cert-item">
+                    <img src="cert3.jpg" alt="Accounting Certificate" class="cert-img">
+                    <span class="cert-caption">Introductory Accounting</span>
+                </div>
+
+                <!-- Text Only Skills (if no image) -->
+                <div class="cert-item" style="display: flex; align-items: center; justify-content: center; background: #f9f9f9;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-file-excel" style="font-size: 30px; color: #217346; margin-bottom: 10px;"></i>
+                        <br><strong>Microsoft Excel</strong><br>Academic Use
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CURRENT STATUS (UPDATED) -->
+        <section id="status">
+            <h2 class="section-title">Current Academic & Leadership Status</h2>
+            <p>
+                I am a second-year Economics student at Addis Ababa University, currently serving as a <strong>student representative for the Economics Department</strong>. In this role, I actively engage in academic coordination, student advocacy, and communication between students and faculty, demonstrating responsibility, leadership, and institutional commitment.
+            </p>
+            <p>
+                I maintain a strong academic record with a high CGPA in my Economics major, reflecting consistent performance and discipline in my studies. My academic focus aligns closely with national and international economic, social, and political issues, particularly those affecting sustainable development.
+            </p>
+            
+            <h3>Core Areas of Interest</h3>
+            <ul class="interest-list">
+                <li>Poverty Reduction</li>
+                <li>Inequality & Wealth Distribution</li>
+                <li>Unemployment</li>
+                <li>UN Sustainable Development Goals (SDGs)</li>
+                <li>Gender-Based Violence & Economics</li>
+                <li>Food Security</li>
+            </ul>
+
+            <p>
+                I approach these issues through an economic lens, emphasizing evidence-based analysis, policy relevance, and long-term impact. Through my studies and leadership roles, I am committed to contributing meaningfully to economic research and policy discussions at both national and global levels.
+            </p>
+        </section>
+
+        <!-- 4. FUTURE CAREER -->
+        <section id="future">
+            <h2 class="section-title">Future Career & Vision</h2>
+            <p>
+                My personal history has given me a unique perspective on the importance of economic stability. My long-term goal is not just academic success, but practical application.
+            </p>
+            <p>
+                I aim to become a leading Economist and Policy Advisor. I intend to contribute to designing economic frameworks that reduce inequality and provide opportunities for families facing the same hardships I once overcame.
+            </p>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Connect on LinkedIn: <a href="https://www.linkedin.com/in/abel429">www.linkedin.com/in/abel429</a></p>
+        <p>&copy; 2025 Abel Tilahun Alemu. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
